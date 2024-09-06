@@ -1,0 +1,52 @@
+package account.util;
+
+import lombok.Getter;
+
+@Getter
+public enum Points {
+    FILLING(100),
+    LEVEL_1(100),
+    LEVEL_2(200),
+    LEVEL_3(300),
+    LEVEL_4(400),
+    LEVEL_5(500),
+    POSITION_ZAM_1(100),
+    POSITION_ZAM_2(200),
+    POSITION_UPR_1(300),
+    POSITION_UPR_2(400),
+    POSITION_UPR_3(500),
+    POSITION_UPR_4(600),
+    SENIORITY_1(100),
+    SENIORITY_2(200),
+    SENIORITY_3(300),
+    SENIORITY_4(400),
+    SENIORITY_5(500),
+    SENIORITY_6(600),
+    SENIORITY_7(700),
+    SENIORITY_8(800),
+    SENIORITY_9(900),
+    SENIORITY_10(1000),
+    SENIORITY_11(1100),
+    SENIORITY_12(1200),
+    SENIORITY_13(1300),
+    SENIORITY_14(1400),
+    SENIORITY_15(1500),
+    SENIORITY_16(1600),
+    SENIORITY_17(1700),
+    SENIORITY_18(1800),
+    SENIORITY_19(1900),
+    SENIORITY_20(2000),
+    SENIORITY_21(2100),
+    SENIORITY_22(2200),
+    SENIORITY_23(2300),
+    SENIORITY_24(2400),
+    SENIORITY_25(2500),
+    SENIORITY_26(2600),
+    SENIORITY_27(2700);
+
+    private final int points;
+
+    Points(int points) {
+        this.points = points;
+    }
+}
