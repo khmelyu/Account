@@ -54,7 +54,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>userAccount.UserAccountApplication</mainClass>
+                            <mainClass>account.AccountApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
