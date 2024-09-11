@@ -37,7 +37,7 @@ public class UserDTO {
             this.level = user.getLevel();
             this.seniority = user.getSeniority();
             this.division = user.getDivision();
-            this.points = user.getStatic_points();
+            this.points = user.getStatic_points() + user.getDynamic_points();
             this.visitedTrainingsCount = visitedTrainingsCount;
             this.curator = curator;
     }
