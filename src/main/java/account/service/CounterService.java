@@ -16,7 +16,7 @@ public class CounterService {
     private final UsersToTrainingsRepository usersToTrainingsRepository;
 
     public int countVisitedTrainings(Users user) {
-        List<UsersToTrainings> usersToTrainings = usersToTrainingsRepository.findByUserAndActualAndPresenceAndTrainingDateBefore(user);
+        List<UsersToTrainings> usersToTrainings = usersToTrainingsRepository.findVisitedStarTrainings(user);
         return usersToTrainings.size();
     }
 

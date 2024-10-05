@@ -25,4 +25,5 @@ public class Users {
     private String division;
     private int static_points;
     private int dynamic_points;
+    private int training_points;
 }

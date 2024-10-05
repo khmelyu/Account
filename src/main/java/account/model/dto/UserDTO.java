@@ -25,7 +25,7 @@ public class UserDTO {
 
     public UserDTO() {
     }
-    public UserDTO(Users user, int visitedTrainingsCount, String curator) {
+    public UserDTO(Users user, int visitedTrainingsCount, String curator, int trainingPoints) {
         this.id = user.getId();
             this.name = user.getName();
             this.lastname = user.getLastname();
@@ -37,7 +37,7 @@ public class UserDTO {
             this.level = user.getLevel();
             this.seniority = user.getSeniority();
             this.division = user.getDivision();
-            this.points = user.getStatic_points() + user.getDynamic_points();
+            this.points = user.getStatic_points() + user.getDynamic_points() + trainingPoints;
             this.visitedTrainingsCount = visitedTrainingsCount;
             this.curator = curator;
     }

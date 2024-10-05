@@ -13,5 +13,6 @@ public class Trainings {
     @Id
     private UUID id;
     private Date date;
+    private String name;
     private Boolean actual;
 }

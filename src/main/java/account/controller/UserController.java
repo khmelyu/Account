@@ -4,7 +4,6 @@ import account.model.dto.TopUserDTO;
 import account.model.dto.UserDTO;
 import account.model.entity.Gallery;
 import account.model.entity.Users;
-import account.model.entity.UsersToTrainings;
 import account.model.rep.GalleryRepository;
 import account.model.rep.UserRepository;
 import account.model.rep.UsersToTrainingsRepository;
@@ -37,18 +36,21 @@ public class UserController {
 
         if (userOptional.isPresent()) {
             Users user = userOptional.get();
+
+            int trainingPoints = usersToTrainingsRepository.findVisitedStarTrainings(user).size() * 30;
+            user.setTraining_points(trainingPoints);
+            userRepository.save(user);
             Long curatorId = selectCuratorService.selectCuratorToView(user);
             if (curatorId != null) {
                 String curator = selectCuratorService.curatorName(curatorId);
                 int visitedTrainingsCount = counterService.countVisitedTrainings(user);
-                return Optional.of(new UserDTO(user, visitedTrainingsCount, curator));
+                return Optional.of(new UserDTO(user, visitedTrainingsCount, curator, trainingPoints));
             } else {
-                return Optional.of(new UserDTO(user, counterService.countVisitedTrainings(user), null));
+                return Optional.of(new UserDTO(user, counterService.countVisitedTrainings(user), null, trainingPoints));
             }
         }
         return Optional.empty();
     }
-
 
 
     @GetMapping("/top5")
@@ -60,10 +62,6 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-    private int countVisitedTrainings(Users user) {
-        List<UsersToTrainings> usersToTrainings = usersToTrainingsRepository.findByUserAndActualAndPresenceAndTrainingDateBefore(user);
-        return usersToTrainings.size();
-    }
 
     @GetMapping("/cities")
     public List<String> getAllCities() {
